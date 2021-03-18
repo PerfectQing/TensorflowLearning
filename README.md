@@ -101,23 +101,23 @@ grid:
 
 ## 神经网络的复杂度
 
-:heavy_check_mark: NN复杂度：多用NN层数和NN参数的个数表示
+✔ NN复杂度：多用NN层数和NN参数的个数表示
 
 ![image-20210315213822119](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20210315213822119.png)
 
 **空间复杂度：**
 
-:heavy_check_mark: 层数 = 隐藏层的层数 + 1个输出层
+✔ 层数 = 隐藏层的层数 + 1个输出层
 
 <u>上图为2层NN</u>
 
-:heavy_check_mark: ​总参数 = 总w + 总b
+✔ 总参数 = 总w + 总b
 
 <u>上图为3 * 4 + 4 + 4 * 2 + 2 = 26</u>
 
 **时间复杂度：**
 
-:heavy_check_mark: 乘加运算次数
+✔ 乘加运算次数
 
 <u>上图 3 * 4 + 4 * 2 = 20</u>
 
@@ -153,7 +153,7 @@ for epoch in range(epoch):
 
 ### 激活函数
 
-:heavy_check_mark: Sigmoid函数
+✔ Sigmoid函数
 
 $$
 f(x)=\frac{1}{1+e^{-x}}
@@ -164,7 +164,7 @@ tf.nn.sig,oid(x)  # 将输入值变换到 (0, 1) 之间输出
 
 
 
-:heavy_check_mark: Tanh函数
+✔ Tanh函数
 $$
 f(x)=\frac{1-e^{-2x}}{1+e^{-2x}}
 $$
@@ -180,7 +180,7 @@ tf.math.tanh(x)
 
 
 
-:heavy_check_mark: Relu函数
+✔ Relu函数
 $$
 f(x)=max(x, 0)=
 $$
@@ -190,7 +190,7 @@ tf.nn.relu(x)
 
 
 
-:heavy_check_mark: Leaky Relu
+✔ Leaky Relu
 
 tf.nn.leaky_relu(x)
 
@@ -206,7 +206,7 @@ tf.nn.leaky_relu(x)
 
 
 
-:heavy_check_mark: 损失函数 (loss): 预测值 (y) 与已知答案 (y_) 的差距
+✔ 损失函数 (loss): 预测值 (y) 与已知答案 (y_) 的差距
 
 NN优化目标： loss最小 
 
@@ -214,7 +214,7 @@ NN优化目标： loss最小
 * 自定义
 * ce(Cross Entropy)  # 交叉熵
 
-:heavy_check_mark: 均方误差 mse
+✔ 均方误差 mse
 $$
 MSE({y_\_},y)=\frac{\sum_{i=1}^n (y - y_\_)^2}{n}
 $$
@@ -222,7 +222,7 @@ loss_mse = tf.reduce_mean(tf.square(y_ -  y))
 
 ![image-20210316092407331](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20210316092407331.png)
 
-:rainbow_flag: Example
+💬 Example
 
 预测酸奶日销量y, x1, x2 是影响日销量的因素。
 
@@ -275,7 +275,7 @@ Final w1 is:
 
 
 
-:heavy_check_mark: 自定义损失函数：
+✔ 自定义损失函数：
 
 如预测商品销量，预测多了，损失成本，预测少了，损失利润。
 
@@ -289,7 +289,7 @@ $$
 
  
 
-:heavy_check_mark: 交叉熵损失函数 CE (Cross Entropy): 表征两个概率分布之间的距离
+✔ 交叉熵损失函数 CE (Cross Entropy): 表征两个概率分布之间的距离
 $$
 H(y_\_,y)=-\sum{y_\_*\ln y}
 $$
@@ -322,7 +322,7 @@ loss_ce2: tf.Tensor(0.22314353, shape=(), dtype=float32)
 
 ### softmax 与交叉熵结合
 
-:heavy_check_mark: 输出先过softmax函数，再计算y与y_的交叉熵损失函数
+✔ 输出先过softmax函数，再计算y与y_的交叉熵损失函数
 
 tf.nn.softmax_cross_entropy_with_logits(y_, y)
 
@@ -357,20 +357,20 @@ print('结合计算的结果：\n', loss_ce2)
 
 ![image-20210317090543891](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20210317090543891.png)
 
-:heavy_check_mark:  欠拟合的解决方法:
+✔  欠拟合的解决方法:
 
 * 增加输入特征项
 * 增加网络参数
 * 减少正则化参数
 
-:heavy_check_mark: 过拟合的解决方法:
+✔ 过拟合的解决方法:
 
 * 数据清洗
 * 增大训练集
 * 采用正则化
 * 增大正则化参数
 
-:heavy_check_mark: 正则化缓解过拟合
+✔ 正则化缓解过拟合
 
 ![image-20210317092518987](C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20210317092518987.png)
 
@@ -401,7 +401,7 @@ print('结合计算的结果：\n', loss_ce2)
 
 ### 优化器
 
-:heavy_check_mark: SGD（无 momentum），常用的梯度下降法。
+✔ SGD（无 momentum），常用的梯度下降法。
 
 $m_t = g_t \ \ \ \ \ \ \ \  V_T = 1$
 
@@ -547,7 +547,7 @@ total_time 12.701475381851196
 
 
 
-:heavy_check_mark: SGDM（含momentum的SGD），在SGD基础上增加一阶动量。
+✔ SGDM（含momentum的SGD），在SGD基础上增加一阶动量。
 
 $m_t = \beta * m_{t-1} + (1-\beta)*g_t \ \ \ \ \ \ \ \  V_T = 1$
 
@@ -586,7 +586,7 @@ total_time 10.623216390609741
 
 
 
-:heavy_check_mark: Adagrad，在SGD基础上增加二阶动量
+✔ Adagrad，在SGD基础上增加二阶动量
 
 $$m_t = g_t \   \ \ \ \ \ \ V_t =\sum_{\tau=1}^t g_\tau ^2$$
 
@@ -618,7 +618,7 @@ total_time 7.388378620147705
 
 
 
-:heavy_check_mark: RMSProp，SGD基础上增加二阶动量
+✔ RMSProp，SGD基础上增加二阶动量
 
 $$m_t = g_t \   \ \ \ \ \ \ V_t =\beta * V_{t-1}+(1-\beta)*g_t ^2$$
 
@@ -651,7 +651,7 @@ total_time 12.019102573394775
 
 
 
-:heavy_check_mark: Adam，同时结合SGDM一阶动量和RMSProp二阶动量
+✔ Adam，同时结合SGDM一阶动量和RMSProp二阶动量
 
 $m_t = \beta_1*m_{t-1}+(1-\beta_1)*g_t$
 
